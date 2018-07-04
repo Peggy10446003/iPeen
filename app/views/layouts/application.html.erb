@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MyRedmine</title>
+    <title>MyIpeen</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,7 +13,8 @@
     <%= render 'shared/navbar' %>
     <div class="container">
       <%= render "shared/flash" if notice %>
-      <%= yield %>  
+      <%= yield %> 
+      <%= render 'shared/footer' %>
     </div>
   </body>
 </html>

@@ -1,0 +1,28 @@
+<div style="padding:30px;">
+</div>
+<h1>文章列表</h1>
+
+  <%= link_to "新增文章", new_article_path , class:"btn btn-outline-success" %>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <td>發文者姓名</td>
+        <td>標題</td>
+        <td>內文</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @articles.each do |article| %>
+      <tr>
+        <td><%= article.name %></td>
+        <td><%= article.title %></td>
+        <td><%= article.content %></td>
+        <td>
+          <%= link_to "編輯", edit_article_path(article) , class:"btn btn-outline-dark btn-sm" %>
+          <%= link_to "刪除", article_path(article), method: "delete", data: { confirm: "確認刪除" }, class:"btn btn-outline-dark btn-sm"  %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
