@@ -1,0 +1,39 @@
+
+<h1>Projects</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>名稱</th>
+      <th>擁有者</th>
+      <th>概述</th>
+      <th>代碼</th>
+      <th>Website</th>
+      <th>Is public</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= link_to project.name, project %></td>
+        <td><%= project.user.display_name %></td>
+        <td><%= project.description %></td>
+        <td><%= project.idendifier %></td>
+        <td><%= project.website %></td>
+        <td><%= yes_or_no(project.is_public) %></td>
+        <td>
+          <%= link_to '編輯', edit_project_path(project) if can? :update, project %>
+        </td>
+        <td>
+          <%= link_to '刪除', project, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, project %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Project', new_project_path %>

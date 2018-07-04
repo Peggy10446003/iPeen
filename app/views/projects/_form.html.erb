@@ -1,0 +1,8 @@
+<%= simple_form_for(@project) do |form| %>
+  <%= form.input :name, label: "名稱" %>
+  <%= form.input :description, label: "概述" %>
+  <%= form.input :idendifier, label: "代碼" %>
+  <%= form.input :website, label: "網站首頁" %>
+  <%= form.input :is_public, label: "公開" %>
+  <%= form.submit %>
+<% end %>
